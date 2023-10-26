@@ -26,5 +26,7 @@
   padding: 5px 10px;
   cursor: pointer;
   color: #1DBEB4;
+  border: 1px solid #1DBEB4;
+  background-color: #FFFFFF;
   ;
 }
