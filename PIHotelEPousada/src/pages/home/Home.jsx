@@ -1,5 +1,7 @@
 import NavBar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import "../home/home.css"
 
 
 
@@ -8,6 +10,7 @@ function Home() {
         <div>
             <NavBar />
             <Header />
+            <Footer />
             </div>
     );
 };
