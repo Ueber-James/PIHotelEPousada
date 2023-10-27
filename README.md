@@ -19,5 +19,7 @@ Funcionalidades Principais
 Neste repositório, você encontrará o código-fonte e a documentação relacionada ao nosso projeto. Algumas das principais funcionalidades incluem:
 
 Pesquisa e reserva de hotéis e pousadas.
+
 Perfil do usuário para gerenciar reservas.
+
 Integração com sistemas de pagamento.
