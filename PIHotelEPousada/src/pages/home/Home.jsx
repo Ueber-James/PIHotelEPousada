@@ -10,9 +10,7 @@ function Home() {
         <div>
             <NavBar />
             <Header />
-            <div>
-                <Card/>
-            </div>
+            <Card/>
         </div>
     );
 }
