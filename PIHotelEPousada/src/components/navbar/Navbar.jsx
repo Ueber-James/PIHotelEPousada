@@ -10,7 +10,7 @@ function NavBar() {
     <div className="navContainer">
       <Link to="/" className="logo"><a Link to="/"><img src={Logo} alt="" /></a></Link>
       <div className="navItems">
-      <Link to="/login" className="navButton">Register</Link>
+      <Link to="/SingUp" className="navButton">Register</Link>
         <Link to="/login" className="navButton">Login</Link>
       </div>
     </div>
