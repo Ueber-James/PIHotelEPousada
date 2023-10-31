@@ -1,15 +1,17 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import "../navbar/navbar.css"
-import Logo from "../../assets/logo1.png";
+import Logo from "../../assets/logo2.jpg";
 
 
 function NavBar() {
   return (
     <div className="navbar">
     <div className="navContainer">
-      <span className="logo"><a href="../../pages/home/Home"><img src={Logo} alt="" /></a></span>
+      <Link to="/" className="logo"><a Link to="/"><img src={Logo} alt="" /></a></Link>
       <div className="navItems">
-        <button className="navButton">Register</button>
-        <button className="navButton">Login</button>
+      <Link to="/login" className="navButton">Register</Link>
+        <Link to="/login" className="navButton">Login</Link>
       </div>
     </div>
   </div>
@@ -17,3 +19,6 @@ function NavBar() {
 }
 
 export default NavBar;
+
+
+
