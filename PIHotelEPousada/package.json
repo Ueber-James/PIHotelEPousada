@@ -10,20 +10,33 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+<<<<<<< HEAD
     "animate.css-react": "^1.1.0",
+=======
+    "@mui/material": "^5.14.16",
+    "axios": "^1.6.0",
+>>>>>>> 7583c36a09b34c897a2d82f58c32c5dc7196d5c0
     "bootstrap": "^5.3.2",
     "date-fns": "^2.30.0",
     "pacote": "^17.0.4",
     "react": "^18.2.0",
+<<<<<<< HEAD
     "react-bootstrap": "^2.9.1",
     "react-date-range": "^1.4.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
     "react-router-dom": "^6.17.0",
     "styled-components": "^6.1.0",
+=======
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.47.0",
+    "react-router-dom": "^6.17.0",
+>>>>>>> 7583c36a09b34c897a2d82f58c32c5dc7196d5c0
     "validator": "^13.11.0"
   },
   "devDependencies": {
@@ -36,5 +49,9 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "sass": "^1.69.5",
     "vite": "^4.4.5"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "vite.config.js",
+  "author": "",
+  "license": "ISC"
 }
