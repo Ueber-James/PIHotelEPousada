@@ -1,76 +1,39 @@
 {
-  "name": "pihotelepousada",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "test": "jest"
-  },
-  "dependencies": {
-    "@babel/core": "^7.23.2",
-    "@babel/preset-env": "^7.23.2",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@fortawesome/fontawesome-svg-core": "^6.4.2",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-<<<<<<< HEAD
-    "animate.css-react": "^1.1.0",
-=======
-    "@mui/material": "^5.14.16",
-    "axios": "^1.6.0",
->>>>>>> 7583c36a09b34c897a2d82f58c32c5dc7196d5c0
-    "bootstrap": "^5.3.2",
-    "date-fns": "^2.30.0",
-    "pacote": "^17.0.4",
-    "react": "^18.2.0",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    "react-bootstrap": "^2.9.1",
->>>>>>> aed10b4e4459d8d6f2c522d385ce298cdbe631ef
-    "react-date-range": "^1.4.0",
-    "react-dom": "^18.2.0",
-    "react-hook-form": "^7.47.0",
-    "react-router-dom": "^6.17.0",
-<<<<<<< HEAD
-    "validator": "^13.11.0",
-    "vitest": "^0.34.6"
-=======
-    "styled-components": "^6.1.0",
-=======
-    "react-dom": "^18.2.0",
-    "react-hook-form": "^7.47.0",
-    "react-router-dom": "^6.17.0",
->>>>>>> 7583c36a09b34c897a2d82f58c32c5dc7196d5c0
-    "validator": "^13.11.0"
->>>>>>> aed10b4e4459d8d6f2c522d385ce298cdbe631ef
-  },
-  "devDependencies": {
-    "@babel/preset-react": "^7.22.15",
-    "@testing-library/jest-dom": "^6.1.4",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^14.5.1",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react-swc": "^3.3.2",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-<<<<<<< HEAD
-    "jest": "^29.7.0",
-=======
-    "sass": "^1.69.5",
->>>>>>> aed10b4e4459d8d6f2c522d385ce298cdbe631ef
-    "vite": "^4.4.5"
-  },
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "main": "vite.config.js",
-  "author": "",
-  "license": "ISC"
+    "name": "pihotelepousada",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.11.1",
+        "@emotion/styled": "^11.11.0",
+        "@fortawesome/fontawesome-svg-core": "^6.4.2",
+        "@fortawesome/free-solid-svg-icons": "^6.4.2",
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "@mui/material": "^5.14.16",
+        "axios": "^1.6.0",
+        "bootstrap": "^5.3.2",
+        "date-fns": "^2.30.0",
+        "pacote": "^17.0.4",
+        "react": "^18.2.0",
+        "react-bootstrap": "^2.9.1",
+        "react-date-range": "^1.4.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.18.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.15",
+        "@types/react-dom": "^18.2.7",
+        "@vitejs/plugin-react-swc": "^3.3.2",
+        "eslint": "^8.45.0",
+        "eslint-plugin-react": "^7.32.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.3",
+        "vite": "^4.4.5"
+    }
 }
