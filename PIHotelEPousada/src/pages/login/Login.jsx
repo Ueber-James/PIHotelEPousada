@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import NavBar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import './login.css';
@@ -22,7 +23,7 @@ function Login() {
             </div>
             <button type="submit" className="button">Login</button>
           </form>
-          <h5>Ainda não tem conta? <a href="">Registre-se</a> </h5>
+          <h5>Ainda não tem conta? <Link to="/singup">Registre-se</Link> </h5>
         </div>
       </main>
       
