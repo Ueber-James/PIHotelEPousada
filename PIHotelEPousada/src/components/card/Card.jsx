@@ -92,6 +92,7 @@ export default function Cards() {
                 margin: "8px",
                 position: 'relative',
               }}>
+                <Link to={`/detalhe-do-produto/${result.id}`}>
                 <CardActionArea style={{ flexGrow: 1 }}>
                   <CardMedia
                     component="img"
@@ -100,8 +101,9 @@ export default function Cards() {
                     alt="hotel-image"
                     style={{ borderRadius: "5px", position: 'relative' }}
                   />
-                  <Link to={`/detalhe-do-produto/${result.id}`}>
-                    <IconButton
+                   
+                  
+                    {/* <IconButton
                       style={{
                         position: 'absolute',
                         bottom: '125px',
@@ -111,8 +113,8 @@ export default function Cards() {
                       }}
                     >
                       <ShoppingCartIcon />
-                    </IconButton>
-                  </Link>
+                    </IconButton> */}
+                 
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       {result.title}
@@ -135,21 +137,36 @@ export default function Cards() {
                       </p>
                     </div>
                   </CardContent>
+                 
                 </CardActionArea>
+                
+                </Link>
+                <Button
+                    onClick={() => toggleFavorite(result.id)}
+                    startIcon={favorites.includes(result.id) ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
+                    size="medium"
+                    variant="outlined"
+                  >
+                   
+                  </Button>
                 <CardActions style={{ justifyContent: 'space-between' }}>
                   <Rating
                     name={`rating-${result.id}`}
                     value={5}
                     readOnly
                   />
-                  <Button
-                    onClick={() => toggleFavorite(result.id)}
-                    startIcon={favorites.includes(result.id) ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
-                    size="medium"
-                    variant="outlined"
-                  >
-                    Favoritar
-                  </Button>
+                   <Button
+          variant="contained"
+          size="large"
+          startIcon={<ShoppingCartIcon />}
+          onClick={() => alert('Reservar')}
+          style={{ marginTop: '16px' }}
+        >
+          Mais Informações
+        </Button>
+
+                 
+                  
                 </CardActions>
                 {index >= Data.length - 4 && (
                   <div style={{
