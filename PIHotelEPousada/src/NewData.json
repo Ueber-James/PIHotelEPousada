@@ -1,0 +1,32 @@
+[{
+  "id": 1,
+  "title": "La Palmas",
+  "localizacao": "A 940 m do centro",
+  "categoria":"",
+  "detalhes-button": "",
+  "img": "https://www.fourseasons.com/alt/img-opt/~80.930.0,0000-219,1262-3000,0000-1687,5000/publish/content/dam/fourseasons/images/web/ALX/ALX_1148_original.jpg"
+},
+{
+  "id": 2,
+  "title": "Confort Inn",
+  "localizacao": "A 940 m do centro",
+  "categoria":"",
+  "detalhes-button": "",
+  "img": "https://www.fourseasons.com/alt/img-opt/~80.930.0,4089-310,8857-2996,8182-1685,7102/publish/content/dam/fourseasons/images/web/ALX/ALX_806_original.jpg"
+},
+{
+  "id": 3,
+  "title": "Chez Louise et Louis",
+  "localizacao": "A 940 m do centro",
+  "categoria":"",
+  "detalhes-button": "",
+  "img": "https://www.fourseasons.com/alt/img-opt/~80.930.91,8069-388,4290-2835,0908-1594,7385/publish/content/dam/fourseasons/images/web/ALX/ALX_812_original.jpg"
+},
+{
+  "id": 4,
+  "title": "Eco Pousada Estrelas",
+  "localizacao": "A 940 m do centro",
+  "categoria":"",
+  "detalhes-button": "",
+  "img": "https://www.fourseasons.com/alt/img-opt/~80.930.0,0000-262,0940-3000,0000-1687,5000/publish/content/dam/fourseasons/images/web/ALX/ALX_1098_original.jpg"
+}]
