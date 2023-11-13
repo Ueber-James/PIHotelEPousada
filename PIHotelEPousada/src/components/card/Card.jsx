@@ -92,8 +92,8 @@ export default function Cards() {
                 margin: "8px",
                 position: 'relative',
               }}>
-                <Link to={`/detalhe-do-produto/${result.id}`}>
-                <CardActionArea style={{ flexGrow: 1 }}>
+               
+                <CardActionArea style={{ flexGrow: 2 }}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -140,7 +140,7 @@ export default function Cards() {
                  
                 </CardActionArea>
                 
-                </Link>
+                
                 <Button
                     onClick={() => toggleFavorite(result.id)}
                     startIcon={favorites.includes(result.id) ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
@@ -155,16 +155,17 @@ export default function Cards() {
                     value={5}
                     readOnly
                   />
+                  <Link to={`/detalhe-do-produto/${result.id}`}>
                    <Button
           variant="contained"
           size="large"
           startIcon={<ShoppingCartIcon />}
-          onClick={() => alert('Reservar')}
+         
           style={{ marginTop: '16px' }}
         >
           Mais Informações
         </Button>
-
+</Link>
                  
                   
                 </CardActions>
