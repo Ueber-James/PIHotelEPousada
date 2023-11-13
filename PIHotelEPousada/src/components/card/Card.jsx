@@ -1,127 +1,194 @@
-import { Grid, Card, CardContent, Typography, CardActions, Button } from "@mui/material";
+import React, { useState } from 'react';
+import { Grid, Card, CardContent, Typography, CardActions, Button, IconButton } from "@mui/material";
 import Data from '../../Data.json';
+import NewData from '../../NewData.json';
 import { CardActionArea } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
-import "./card.css"
+import VerProduto from "../VerProduto/VerProduto";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Rating from '@mui/material/Rating';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from 'react-router-dom';
+
+const imageDimensions = {
+  width: 250,
+  height: 150,
+};
 
 export default function Cards() {
+  const [favorites, setFavorites] = useState([]);
 
- 
+  const toggleFavorite = (id) => {
+    if (favorites.includes(id)) {
+      setFavorites(favorites.filter(favId => favId !== id));
+    } else {
+      setFavorites([...favorites, id]);
+    }
+  };
+
+  const handleShowOnMap = (city) => {
+    const formattedCity = city.replace(/\s+/g, '+');
+    const mapsUrl = `https://www.google.com/maps?q=${formattedCity}`;
+    window.open(mapsUrl, '_blank');
+  };
+
   return (
     <>
-    <div style={{ marginBottom: "100px" }}>
-      <Typography variant='h4' align='center' style={{ marginTop: "50px" }}>
+      <div style={{ marginBottom: "100px" }}>
+        <Typography variant='h5' align='left' style={{ marginTop: "40px", marginLeft: "20px" }}>
+          Hoteis e pousadas
+        </Typography>
+        <Grid container spacing={2} style={{ marginTop: "1px" }}>
+          {Data.map((result, index) => (
+            <Grid item xs={12} sm={6} md={3} key={index}>
+              <Card sx={{
+                maxWidth: "100%",
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                height: '100%',
+                margin: "8px",
+                position: 'relative',
+              }}>
+                <CardActionArea style={{ flexGrow: 1 }}>
+                  <CardMedia
+                    component="img"
+                    width={imageDimensions.width}
+                    height={imageDimensions.height}
+                    image={result.img}
+                    alt="Imagem"
+                    style={{ borderRadius: "5px" }}
+                  />
+                  <CardContent style={{ maxHeight: "100px", overflow: "hidden" }}>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {result.title}
+                    </Typography>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="body2" color="text.secondary">
+                        <des /> {result.des}
+                      </Typography>
+                    </div>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
 
-        Hoteis e pousadas
-      </Typography>
-      <Grid container spacing={2} style={{ marginTop: "20px" }}>
-        {Data.map((result, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Card sx={{
-              maxWidth: "100%",
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              height: '100%',
-              margin: "8px"
-            }}>
-              <CardActionArea style={{ flexGrow: 1 }}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image={result.img}
-                  alt="green iguana"
-                  style={{ borderRadius: "5px" }}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {result.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {result.des}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button variant="contained" size="medium">
-                  Saiba mais
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+        <Typography variant='h5' align='left' style={{ marginTop: "130px", marginLeft: "20px" }}>
+          Recomendações
+        </Typography>
+        <Grid container spacing={2} style={{ marginTop: "20px" }}>
+          {NewData.map((result, index) => (
+            <Grid item xs={12} sm={6} md={3} key={index}>
+              <Card sx={{
+                maxWidth: "100%",
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                height: '100%',
+                margin: "8px",
+                position: 'relative',
+              }}>
+                <Link to={`/detalhe-do-produto/${result.id}`}>
+                <CardActionArea style={{ flexGrow: 1 }}>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image={result.img}
+                    alt="hotel-image"
+                    style={{ borderRadius: "5px", position: 'relative' }}
+                  />
+                   
+                  
+                    {/* <IconButton
+                      style={{
+                        position: 'absolute',
+                        bottom: '125px',
+                        right: '1px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                        borderRadius: '50%',
+                      }}
+                    >
+                      <ShoppingCartIcon />
+                    </IconButton> */}
+                 
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {result.title}
+                    </Typography>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <Typography variant="body2" color="text.secondary">
+                        <LocationOnIcon fontSize="small" /> {result.localizacao}
+                      </Typography>
+                      <p
+                        onClick={() => handleShowOnMap(result.localizacao)}
+                        style={{
+                          cursor: 'pointer',
+                          marginLeft: '10px',
+                          color: '#1DBEB4',
+                          fontWeight: 'bold',
+                          textDecoration: 'none',
+                        }}
+                      >
+                        MOSTRAR NO MAPA
+                      </p>
+                    </div>
+                  </CardContent>
+                 
+                </CardActionArea>
+                
+                </Link>
+                <Button
+                    onClick={() => toggleFavorite(result.id)}
+                    startIcon={favorites.includes(result.id) ? <FavoriteIcon color="error" /> : <FavoriteBorderIcon />}
+                    size="medium"
+                    variant="outlined"
+                  >
+                   
+                  </Button>
+                <CardActions style={{ justifyContent: 'space-between' }}>
+                  <Rating
+                    name={`rating-${result.id}`}
+                    value={5}
+                    readOnly
+                  />
+                   <Button
+          variant="contained"
+          size="large"
+          startIcon={<ShoppingCartIcon />}
+          onClick={() => alert('Reservar')}
+          style={{ marginTop: '16px' }}
+        >
+          Mais Informações
+        </Button>
 
-    <div className="product-list">
-    <div className="product-card">
-    <div className="product-image">
-      <img src="https://ideiasnamala.com/wp-content/uploads/2020/06/Chez-Louise-et-Louis-e1593024038997.jpg.webp" alt="" />
-    </div>
-    <div className="product-details">
-      <div className="product-info">
-        <div className="hotel-nome">hotel 1</div>
-        <div className="hotel-localizacao"> sao bernarso do campo</div>
-        <div className="hotel-categoria">luxo</div>
-        <div className="hotel-descricao"> ddddddd</div>
-        <button className="view-details-button">View Details</button>
+                 
+                  
+                </CardActions>
+                {index >= Data.length - 4 && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '10px',
+                    right: '10px',
+                    backgroundColor: '#1DBEB4',
+                    color: 'white',
+                    padding: '8px',
+                    borderRadius: '8px',
+                    fontSize: '16px',
+                    zIndex: 1,
+                  }}>
+                    <h4 style={{ margin: 0 }}>10</h4>
+                  </div>
+                )}
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+        <VerProduto />
       </div>
-      
-    </div>
-  </div>
-  
-  
-  <div className="product-card">
-  <div className="product-image">
-    <img src="https://ideiasnamala.com/wp-content/uploads/2020/06/Chez-Louise-et-Louis-e1593024038997.jpg.webp" alt="" />
-  </div>
-  <div className="product-details">
-    <div className="product-info">
-      <div className="hotel-nome">hotel 1</div>
-      <div className="hotel-localizacao"> sao bernarso do campo</div>
-      <div className="hotel-categoria">luxo</div>
-      <div className="hotel-descricao"> ddddddd</div>
-      <button className="view-details-button">View Details</button>
-    </div>
-    
-  </div>
-</div>
-<div className="product-card">
-  <div className="product-image">
-    <img src="https://ideiasnamala.com/wp-content/uploads/2020/06/Chez-Louise-et-Louis-e1593024038997.jpg.webp" alt="" />
-  </div>
-  <div className="product-details">
-    <div className="product-info">
-      <div className="hotel-nome">hotel 1</div>
-      <div className="hotel-localizacao"> sao bernarso do campo</div>
-      <div className="hotel-categoria">luxo</div>
-      <div className="hotel-descricao"> ddddddd</div>
-      <button className="view-details-button">View Details</button>
-    </div>
-    
-  </div>
-</div>
-<div className="product-card">
-  <div className="product-image">
-    <img src="https://ideiasnamala.com/wp-content/uploads/2020/06/Chez-Louise-et-Louis-e1593024038997.jpg.webp" alt="" />
-  </div>
-  <div className="product-details">
-    <div className="product-info">
-      <div className="hotel-nome">Hermitage Hotel</div>
-      <div className="hotel-localizacao"> A 940 m do centro - MOSTRAR NO MAPA</div>
-      <div className="hotel-categoria">luxo</div>
-      <div className="hotel-descricao"> No coração de San Telmo, desfrute de uma pousada inspirada nas paixões de Buenos Aires. mais...</div>
-      <button className="view-details-button">Ver mais</button>
-    </div>
-    
-  </div>
-</div>
-</div>
-</div>
-
     </>
-
-
-  
-
-  )
+  );
 }
