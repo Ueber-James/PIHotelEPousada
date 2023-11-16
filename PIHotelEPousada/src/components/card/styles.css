@@ -111,3 +111,14 @@ font-style: normal;
 font-weight: 500;
 line-height: normal;
   }
+
+.parallax {
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+  
+.parallax:hover {
+  transform: scale(1.05);
+}
