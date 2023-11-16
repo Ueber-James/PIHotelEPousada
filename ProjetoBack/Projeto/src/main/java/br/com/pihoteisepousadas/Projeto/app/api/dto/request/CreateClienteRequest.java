@@ -13,6 +13,8 @@ public class CreateClienteRequest {
     @NotBlank
     private String nome;
     @NotBlank
+    private String sobrenome;
+    @NotBlank
     private LocalDate dataNascimento;
     @NotNull
     private CreateEnderecoRequest endereco;

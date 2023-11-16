@@ -53,7 +53,7 @@ public class HospedagemController implements HospedagemApi {
 
     @Override
     public ResponseEntity<HospedagemListResponse> atualizarHospedagemPorId(UUID id, Map<String, Object> campos) {
-        Hospedagem hospedagem = hospedagemService.buscarHospedagemPorId(id);
+        Hospedagem hospedagem = hospedagemService.atualizarHospedagem(id);
         HospedagemListResponse hospedagemListResponse = hospedagemParaHospedagemListResponse(hospedagem);
         return ResponseEntity.accepted().body(hospedagemListResponse);
     }

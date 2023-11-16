@@ -39,6 +39,13 @@ public class Acomodacao {
             foreignKey =
             @ForeignKey(name = "fk_endereco_acomodacao"))
     private Endereco endereco;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "produto_id",
+            referencedColumnName = "id",
+            foreignKey =
+            @ForeignKey(name = "fk_produto_acomodacao"))
+    private Produto produto;
     @PrePersist
     public  void prePersist() {
         LocalDateTime now = LocalDateTime.now();

@@ -17,6 +17,7 @@ public class Cliente {
     private UUID id;
     @Column(length = 80, nullable = false)
     private String nome;
+    private String sobrenome;
     private LocalDate dataNascimento;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(
@@ -35,6 +36,13 @@ public class Cliente {
             foreignKey =
             @ForeignKey(name = "fk_contato_cliente"))
     private Contato contato;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "cidade_id",
+            referencedColumnName = "id",
+            foreignKey =
+            @ForeignKey(name = "fk_cidade_cliente"))
+    private Cidade cidade;
 
     @PrePersist
     public  void prePersist() {

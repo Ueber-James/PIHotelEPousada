@@ -33,6 +33,7 @@ public class ClienteController implements ClienteApi {
                 .map(cliente -> new ClienteListResponse(
                         cliente.getId(),
                         cliente.getNome(),
+                        cliente.getSobrenome(),
                         cliente.getDataNascimento()
                 ));
         return ResponseEntity.ok(response);
@@ -48,7 +49,7 @@ public class ClienteController implements ClienteApi {
 
     @Override
     public ResponseEntity<ClienteListResponse> buscarClientePorId(UUID id) {
-        Cliente cliente = clienteService.atualizarCliente(id);
+        Cliente cliente = clienteService.buscarClientePorId(id);
         ClienteListResponse clienteListResponse = clienteParaClienteListResponse(cliente);
         return ResponseEntity.ok(clienteListResponse);
     }
