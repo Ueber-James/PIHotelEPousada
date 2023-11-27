@@ -20,13 +20,11 @@ public class Contato {
     private String telefone;
     private LocalDate criadoEm;
     private LocalDate atualizadoEm;
-    private String fax;
     public Contato() {
         this.id = id;
         this.email = email;
         this.telefone = telefone;
         this.criadoEm = criadoEm;
         this.atualizadoEm = atualizadoEm;
-        this.fax = fax;
     }
 }

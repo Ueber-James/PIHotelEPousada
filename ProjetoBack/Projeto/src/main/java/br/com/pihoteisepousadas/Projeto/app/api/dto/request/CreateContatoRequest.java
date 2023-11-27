@@ -11,5 +11,4 @@ public class CreateContatoRequest {
     private String telefone;
     private LocalDate criadoEm;
     private LocalDate atualizadoEm;
-    private  String fax;
 }

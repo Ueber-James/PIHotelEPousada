@@ -15,5 +15,4 @@ public class ContatoListResponse {
     private String email;
     private LocalDate criadoEm;
     private LocalDate atualizadoEm;
-    private  String fax;
 }
