@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import {Link, useParams } from 'react-router-dom';
+import {
+  FaMapMarkedAlt
+} from 'react-icons/fa';
 
 import AdultsDropdown from '../components/AdultsDropdown'
 import KindsDropdown from '../components/KidsDropdown'
@@ -19,7 +22,13 @@ const RoomDetails = () => {
     return room.id === Number(id);
   })
 
-  const { name, description, facilities, imageLg, price } = room;
+  const handleMapClick = () => {
+    // Use window.open() to open Google Maps in a new tab
+    const googleMapsUrl = `https://www.google.com/maps?q=${endereco},${pais}`;
+    window.open(googleMapsUrl, '_blank');
+  };
+
+  const { name, description, facilities, imageLg, price, pais, endereco } = room;
   return (
     <section >
       <div className='bg-room bg-cover bg-center h-[560px] relative flex justify-start items-center '>
@@ -27,6 +36,14 @@ const RoomDetails = () => {
         <div className='absolute w-full h-full bg-black/70'></div>
         {/* title */}
        
+      </div>
+      <div className='bg-gray py-2 shadow-lg mx-auto h-full flex uppercase px-10 text-accent'>
+        <div className='px-3'>
+        <FaMapMarkedAlt />
+        </div>
+        <h5 onClick={handleMapClick} style={{ cursor: 'pointer ' }} className='text-accent'>
+          {endereco}, {pais}
+        </h5>
       </div>
       <div className='container mx-auto'>
         <div className='flex flex-col lg:flex-row h-full py-24'>
@@ -75,7 +92,9 @@ const RoomDetails = () => {
                 </div>
                 
               </div>
-              <button className='btn btn-primary w-full h-[40px]'> book now for ${price}</button>
+              <Link to={`/reservation/${id}`} className='btn btn-primary w-full h-[40px]'>
+            Book now for ${price}
+          </Link>
             </div>
            
           </div>

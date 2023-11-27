@@ -3,7 +3,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Login from './pages/login/Login';
 import Singup from './pages/singup/Sign';
-// pages
+import Reservation from './components/reservation';
+
+
+
 
 import Home from './pages/Home';
 import RoomDetails from './pages/RoomDetails';
@@ -16,28 +19,34 @@ import {
 } from "react-router-dom";
 
 
-const router =  createBrowserRouter ([
+const router = createBrowserRouter([
   {
     path: '/',
-    element:  <Home />
+    element: <Home />
   },
   {
     path: '/room/:id',
-    element:  <RoomDetails />
+    element: <RoomDetails />
   },
 
   {
     path: '/login',
-    element:  <Login />
+    element: <Login />
   },
   {
     path: '/singup',
-    element:  <Singup />
+    element: <Singup />
+  },
+  {
+    path: '/reservation/:id',
+    element: <Reservation />
   }
+  
+
 ]);
 
 const App = () => {
-  return( <div>
+  return (<div>
     <Header />
     <RouterProvider router={router} />
     <Footer />
