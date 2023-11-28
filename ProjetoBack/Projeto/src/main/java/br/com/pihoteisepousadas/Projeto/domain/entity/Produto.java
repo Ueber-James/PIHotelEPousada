@@ -48,6 +48,6 @@ public class Produto {
             referencedColumnName = "id",
             foreignKey =
             @ForeignKey(name = "fk_acomodacao_produto"))
-    private Acomodacao acomodacao;
+    private Hoteis acomodacao;
 
 }

@@ -29,14 +29,10 @@ public class WebServerSecurityConfiguration {
     @Bean
     //permite apenas requisições para authentication, bloqueia todas as outras requisições
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(request ->
-                        request
-                                .requestMatchers(HttpMethod.POST, "/v1/authentication/**").permitAll()
-                                .anyRequest().authenticated())
-                .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
-                .authenticationProvider(authenticationProvider()).addFilterBefore(
-                        jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        http.csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests( auth -> {    auth.requestMatchers("/v1/usuarios").permitAll();
+                    auth.anyRequest().authenticated();
+                });
         return http.build();
     }
 

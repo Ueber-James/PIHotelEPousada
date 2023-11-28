@@ -18,18 +18,18 @@ public class Hospedagem {
     private UUID id;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
-            name = "cliente_id",
+            name = "usuario_id",
             referencedColumnName = "id",
             foreignKey =
-            @ForeignKey(name = "fk_cliente_hospedagem"))
-    private Cliente cliente;
+            @ForeignKey(name = "fk_usuario_hospedagem"))
+    private Usuario cliente;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
-            name = "acomodacao_id",
+            name = "hoteis_id",
             referencedColumnName = "id",
             foreignKey =
-            @ForeignKey(name = "fk_acomodacao_hospedagem"))
-    private Acomodacao acomodacao;
+            @ForeignKey(name = "fk_hoteis_hospedagem"))
+    private Hoteis hoteis;
     private LocalDate dataHospedagem;
     private LocalDateTime criadoEm;
     private LocalDateTime atualizadoEm;

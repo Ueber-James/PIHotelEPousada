@@ -4,15 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.UUID;
+
 @Getter
 @Setter
 @AllArgsConstructor
-public class ContatoListResponse {
+public class UsuarioListResponse {
     private UUID id;
-    private String telefone;
+    private String nome;
+    private String sobrenome;
     private String email;
-    private LocalDate criadoEm;
-    private LocalDate atualizadoEm;
+    private String senha;
+    private String confirmarSenha;
+
 }
