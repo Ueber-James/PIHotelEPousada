@@ -22,7 +22,7 @@ public class Hospedagem {
             referencedColumnName = "id",
             foreignKey =
             @ForeignKey(name = "fk_usuario_hospedagem"))
-    private Usuario cliente;
+    private Usuario usuario;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "hoteis_id",
@@ -31,22 +31,10 @@ public class Hospedagem {
             @ForeignKey(name = "fk_hoteis_hospedagem"))
     private Hoteis hoteis;
     private LocalDate dataHospedagem;
-    private LocalDateTime criadoEm;
-    private LocalDateTime atualizadoEm;
     private String descricao;
     private Boolean cancelada;
     @Column(length = 80)
     private  String motivo_cancelamento;
-    @PrePersist
-    public  void prePersist() {
-        LocalDateTime now = LocalDateTime.now();
-        this.criadoEm = now;
-        this.atualizadoEm = now;
-    }
-    @PreUpdate
-    public void preUpdate() {
-        this.atualizadoEm = LocalDateTime.now();
-    }
 
     private void validar(){
         if (id == null) {

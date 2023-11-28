@@ -44,10 +44,10 @@ public class Produto {
     private Cidade cidade;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
-            name = "acomodacao_id",
+            name = "hoteis_id",
             referencedColumnName = "id",
             foreignKey =
-            @ForeignKey(name = "fk_acomodacao_produto"))
-    private Hoteis acomodacao;
+            @ForeignKey(name = "fk_hoteis_produto"))
+    private Hoteis hoteis;
 
 }
