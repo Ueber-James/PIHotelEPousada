@@ -6,6 +6,7 @@ import br.com.pihoteisepousadas.Projeto.app.api.dto.response.UsuarioListResponse
 import br.com.pihoteisepousadas.Projeto.domain.entity.Usuario;
 import br.com.pihoteisepousadas.Projeto.domain.service.UsuarioService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,6 +43,7 @@ public class UsuarioController implements UsuarioApi {
     }
 
     @Override
+
     public ResponseEntity<UsuarioListResponse> criarUsuario(CreateUsuarioRequest request) {
         Usuario usuario = mapper.convertValue(request, Usuario.class);
         Usuario usuarioCriado = usuarioService.criarUsuario(usuario);
