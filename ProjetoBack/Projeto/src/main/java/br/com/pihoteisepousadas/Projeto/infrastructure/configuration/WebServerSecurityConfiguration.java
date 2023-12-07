@@ -25,14 +25,26 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 public class WebServerSecurityConfiguration {
     private final JwtRequestFilter jwtAuthenticationFilter;
     private final UserService userService;
+    private static final String [] SWAGGER_LIST ={
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
+            "/swagger-resources/**",
+    };
 
     @Bean
     //permite apenas requisições para authentication, bloqueia todas as outras requisições
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
         http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests( auth -> {    auth.requestMatchers("/v1/usuarios").permitAll();
+                .authorizeHttpRequests( auth -> {    auth.requestMatchers("/usuarios").permitAll();
+                    auth.requestMatchers(SWAGGER_LIST).permitAll();
+                    auth.requestMatchers("/authentication/sign-up").permitAll();
+                    auth.requestMatchers("/authentication/sign-in").permitAll();
+
                     auth.anyRequest().authenticated();
+
                 });
+
         return http.build();
     }
 

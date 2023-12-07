@@ -17,7 +17,6 @@ public class HospedagemServiceImpl implements HospedagemService {
     public HospedagemServiceImpl(HospedagemRepository hospedagemRepository) {
         this.hospedagemRepository = hospedagemRepository;
     }
-
     @Override
     public Hospedagem criarHospedagem(Hospedagem hospedagem) {
         return hospedagemRepository.save(hospedagem);

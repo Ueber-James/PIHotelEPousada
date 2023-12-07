@@ -20,7 +20,6 @@ public class Usuario {
     private String sobrenome;
     private String email;
     private String senha;
-    private String confirmarSenha;
     private void validar(){
         if (nome == null) {
             throw new IllegalArgumentException("'nome' não informado!");

@@ -30,11 +30,8 @@ public class Hospedagem {
             @ForeignKey(name = "fk_hoteis_hospedagem"))
     private Hoteis hoteis;
     private LocalDate dataHospedagem;
-    private String descricao;
     private Boolean cancelada;
-    @Column(length = 80)
-    private  String motivo_cancelamento;
-
+    private String valor;
     private void validar(){
         if (id == null) {
             throw new IllegalArgumentException("'id' não informado!");

@@ -17,7 +17,5 @@ public class CreateUsuarioRequest {
     private String email;
     @NotBlank
     private String senha;
-    @NotBlank
-    private String confirmarSenha;
 
 }

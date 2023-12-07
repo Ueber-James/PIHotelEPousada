@@ -1,5 +1,7 @@
 package br.com.pihoteisepousadas.Projeto.app.api.dto.response;
 
+import br.com.pihoteisepousadas.Projeto.domain.entity.Hoteis;
+import br.com.pihoteisepousadas.Projeto.domain.entity.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class HospedagemListResponse {
     private UUID id;
-    private LocalDate dataConsulta;
+    private LocalDate dataHospedagem;
     private Boolean cancelada;
+    private String valor;
 }

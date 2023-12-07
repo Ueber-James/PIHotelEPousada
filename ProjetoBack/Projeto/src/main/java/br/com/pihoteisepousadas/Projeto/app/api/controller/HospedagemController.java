@@ -31,7 +31,10 @@ public class HospedagemController implements HospedagemApi {
         Page<Hospedagem> hospedagemPage = hospedagemService.buscarHospedagem(pageable);
 
         Page<HospedagemListResponse> response = hospedagemPage
-                .map(hospedagem -> new HospedagemListResponse(hospedagem.getId(), hospedagem.getDataHospedagem(), hospedagem.getCancelada()));
+                .map(hospedagem -> new HospedagemListResponse(hospedagem.getId(),
+                        hospedagem.getDataHospedagem(),
+                        hospedagem.getCancelada(),
+                        hospedagem.getValor()));
         return ResponseEntity.ok(response);
     }
 
