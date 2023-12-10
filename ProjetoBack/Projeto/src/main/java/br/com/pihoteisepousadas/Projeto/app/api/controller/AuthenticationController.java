@@ -49,7 +49,7 @@ public class AuthenticationController {
         }
     }
 
-    /*@PostMapping(value = "/sign-up")
+    @PostMapping(value = "/sign-up")
     @Operation(summary = "Registrar novo usuário", description = "Registra um novo usuário com base nas informações fornecidas.")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody @Valid AuthenticationSignUpRequest request) {
         Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -68,9 +68,10 @@ public class AuthenticationController {
             // Re-throw the exception
             throw e;
         }
-        */
+    }
 
-        @PostMapping(value = "/sign-up")
+
+       /* @PostMapping(value = "/sign-up")
         @Operation(summary = "Registrar novo usuário", description = "Registra um novo usuário com base nas informações fornecidas.")
         public ResponseEntity<?> createNewUser(@RequestBody @Valid AuthenticationSignUpRequest request) {
             Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -91,5 +92,5 @@ public class AuthenticationController {
 
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar o usuário");
             }
-        }
+        } */
 }
