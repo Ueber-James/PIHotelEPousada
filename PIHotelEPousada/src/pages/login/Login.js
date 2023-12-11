@@ -3,7 +3,7 @@ import  { useState } from 'react';
 import './login.css';
 import axios from 'axios';
 
- function Login() {
+function Login({ setLoggedIn }) {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -24,7 +24,8 @@ import axios from 'axios';
 
       // Verifique a resposta do servidor para determinar se o login foi bem-sucedido
       if (response.data.success) {
-        localStorage.setItem('currentUser', JSON.stringify(response.data.user) )
+        localStorage.setItem('currentUser', JSON.stringify(response.data.user));
+        setLoggedIn(true);
         window.location.href = '/';
       } else {
         setError('Credenciais inválidas. Tente novamente.');

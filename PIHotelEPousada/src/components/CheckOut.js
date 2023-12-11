@@ -7,13 +7,17 @@ import { RoomContext } from '../context/RoomContext';
 import { format } from 'date-fns';
 
 const CheckOut = () => {
-  const { checkOutDate, setCheckOutDate, setStayDuration, checkInDate } = useContext(RoomContext);
+  const { checkOutDate, handleCheckOutChange, setStayDuration, checkInDate, stayDuration } = useContext(RoomContext);
 
   useEffect(() => {
     // Lógica específica ao mudar a data de check-out (se necessário)
-  }, [checkInDate, checkOutDate, setStayDuration]);
+    if (checkInDate && checkOutDate) {
+      const diffInDays = Math.floor((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+      setStayDuration(diffInDays);
+    }
+  }, [checkInDate, checkOutDate, setStayDuration, stayDuration]);
 
-  const formatDate = (date) => format(date, 'dd/MM/yyyy');
+  console.log('Detalhes da Reserva:', { checkInDate, checkOutDate, stayDuration, stayDuration });
 
   return (
     <div className='relative flex items-center justify-end h-full'>
@@ -26,11 +30,11 @@ const CheckOut = () => {
         className='w-full h-full'
         selected={checkOutDate}
         placeholderText='Check Out'
-        onChange={(date) => setCheckOutDate(date)}
-        dateFormat="dd/MM/yyyy" // Adicione esta propriedade para definir o formato da data
+        onChange={(date) => handleCheckOutChange(date)}
+        dateFormat='dd/MM/yyyy'
         showMonthDropdown
         showYearDropdown
-        dropdownMode="select"
+        dropdownMode='select'
       />
     </div>
   );

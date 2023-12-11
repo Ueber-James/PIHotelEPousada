@@ -43,7 +43,7 @@ export const roomData = [
       { name: 'GYM', icon: <FaStopwatch /> },
       { name: 'Drinks', icon: <FaCocktail /> },
     ],
-    pais:'dubai',
+    pais:'dubai, argentina',
     endereco: 'Sheikh Zayed Road',
     size: 30,
     maxPerson: 1,

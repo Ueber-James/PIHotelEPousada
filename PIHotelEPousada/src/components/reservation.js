@@ -3,15 +3,14 @@ import { useParams } from 'react-router-dom';
 import { RoomContext } from '../context/RoomContext';
 import { FaMapMarkedAlt } from 'react-icons/fa';
 import { format, addDays } from 'date-fns';
+import CheckIn from '../components/CheckIn'
+import CheckOut from '../components/CheckOut'
 
 const ReservationPage = () => {
-  const { rooms } = useContext(RoomContext);
+  const { rooms, checkInDate, checkOutDate, setCheckInDate, setCheckOutDate, setStayDuration, stayDuration } = useContext(RoomContext);
   const { id } = useParams();
   const room = rooms.find((room) => room.id === Number(id));
 
-  const [checkInDate, setCheckInDate] = useState(null);
-  const [checkOutDate, setCheckOutDate] = useState(null);
-  const [stayDuration, setStayDuration] = useState(0);
   const [total, setTotal] = useState(0);
 
   const handleMapClick = () => {
@@ -20,22 +19,28 @@ const ReservationPage = () => {
   };
 
   useEffect(() => {
-  if (!room) {
-    return;
-  }
+    if (!room || !checkInDate || !checkOutDate || checkInDate >= checkOutDate) {
+      return;
+    }
 
-  if (checkInDate && checkOutDate) {
     const diffInDays = Math.floor((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+
     setStayDuration(diffInDays);
 
     const totalPrice = diffInDays * room.price;
     setTotal(totalPrice);
 
-    console.log('Datas Atualizadas:', { checkInDate, checkOutDate, stayDuration, totalPrice });
-  }
-}, [checkInDate, checkOutDate, room]);
+    console.log('Detalhes da Reserva:', { room, checkInDate, checkOutDate, stayDuration: diffInDays, total: totalPrice, stayDuration });
+  }, [checkInDate, checkOutDate, room, setStayDuration]);
+
   const handleConfirmReservation = () => {
-    console.log('Reserva confirmada:', { room, checkInDate, checkOutDate, stayDuration, total });
+    if (!checkInDate || !checkOutDate || checkInDate >= checkOutDate) {
+      console.error('Datas de reserva inválidas');
+      return;
+    }
+
+   
+    // Adicione a lógica para confirmar a reserva (por exemplo, enviar dados para um servidor)
   };
 
   if (!room) {
@@ -43,6 +48,7 @@ const ReservationPage = () => {
   }
 
   const formatDate = (date) => format(date, 'dd/MM/yyyy');
+
 
   return (
     <section>
@@ -65,21 +71,23 @@ const ReservationPage = () => {
         <p>Preço por noite: ${room.price}</p>
         <div>
           <label>Data de Check-In:</label>
-          <input
+          {/* <input
             type="date"
             value={checkInDate ? formatDate(checkInDate) : ''}
             min={formatDate(new Date())} // Impede datas anteriores à data atual
             onChange={(e) => setCheckInDate(new Date(e.target.value))}
-          />
+          /> */}
+           <p><CheckIn /></p>
         </div>
         <div>
           <label>Data de Check-Out:</label>
-          <input
+          {/* <input
             type="date"
             value={checkOutDate ? formatDate(checkOutDate) : ''}
             min={checkInDate ? formatDate(addDays(checkInDate, 1)) : formatDate(new Date())} // Impede datas anteriores à data de check-in
             onChange={(e) => setCheckOutDate(new Date(e.target.value))}
-          />
+          /> */}
+          <p><CheckOut /></p>
         </div>
         <p>Duração da Estadia: {stayDuration} dias</p>
         <p>Total: ${total}</p>

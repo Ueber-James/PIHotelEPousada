@@ -1,3 +1,4 @@
+// CheckIn.js
 import React, { useContext, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -6,13 +7,11 @@ import { RoomContext } from '../context/RoomContext';
 import { format } from 'date-fns';
 
 const CheckIn = () => {
-  const { checkInDate, setCheckInDate } = useContext(RoomContext);
+  const { checkInDate, handleCheckInChange } = useContext(RoomContext);
 
   useEffect(() => {
     // Lógica específica ao mudar a data de check-in (se necessário)
-  }, [checkInDate, setCheckInDate]);
-
-  const formatDate = (date) => format(date, 'dd/MM/yyyy');
+  }, [checkInDate, handleCheckInChange]);
 
   return (
     <div className='relative flex items-center justify-end h-full'>
@@ -22,15 +21,15 @@ const CheckIn = () => {
         </div>
       </div>
       <DatePicker
-  className='w-full h-full'
-  selected={checkInDate}
-  placeholderText='Check In'
-  onChange={(date) => setCheckInDate(date)}
-  dateFormat="dd/MM/yyyy"
-  showMonthDropdown
-  showYearDropdown
-  dropdownMode="select"
-/>
+        className='w-full h-full'
+        selected={checkInDate}
+        placeholderText='Check In'
+        onChange={(date) => handleCheckInChange(date)}
+        dateFormat='dd/MM/yyyy'
+        showMonthDropdown
+        showYearDropdown
+        dropdownMode='select'
+      />
     </div>
   );
 };

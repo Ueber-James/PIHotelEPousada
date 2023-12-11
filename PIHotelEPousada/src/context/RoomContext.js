@@ -1,3 +1,4 @@
+// RoomContext.js
 import React, { createContext, useEffect, useState } from 'react';
 import { roomData } from '../data';
 
@@ -10,8 +11,8 @@ const RoomProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
   const [cidade, setCidade] = useState('');
   const [pais, setPais] = useState('');
-  const [checkInDate, setCheckInDate] = useState();
-  const [checkOutDate, setCheckOutDate] = useState();
+  const [checkInDate, setCheckInDate] = useState(null);
+  const [checkOutDate, setCheckOutDate] = useState(null);
   const [stayDuration, setStayDuration] = useState(0);
 
   useEffect(() => {
@@ -24,6 +25,14 @@ const RoomProvider = ({ children }) => {
 
   const handleCountryChange = (e) => {
     setPais(e.target.value);
+  };
+
+  const handleCheckInChange = (date) => {
+    setCheckInDate(date);
+  };
+
+  const handleCheckOutChange = (date) => {
+    setCheckOutDate(date);
   };
 
   const handleClick = (e) => {
@@ -59,6 +68,8 @@ const RoomProvider = ({ children }) => {
         setStayDuration,
         handleCityChange,
         handleCountryChange,
+        handleCheckInChange,
+        handleCheckOutChange,
         handleClick,
       }}
     >
