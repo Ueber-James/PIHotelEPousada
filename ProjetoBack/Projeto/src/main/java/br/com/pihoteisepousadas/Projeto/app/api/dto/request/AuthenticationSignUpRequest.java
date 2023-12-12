@@ -13,11 +13,11 @@ public class AuthenticationSignUpRequest {
     @NotBlank
     private String nome;
     @NotBlank
+    private String sobrenome;
+    @NotBlank
     private String email;
     @NotBlank
     private String password;
-    @NotNull
-    private LocalDate dataNascimento;
     @NotNull
     private UserPermission role;
 }

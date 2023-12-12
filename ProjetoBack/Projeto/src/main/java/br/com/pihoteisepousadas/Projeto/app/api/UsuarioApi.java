@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -27,10 +28,6 @@ public interface UsuarioApi {
     @GetMapping
     @Operation(summary = "Buscar todos os usuários", description = "Obtém uma lista paginada de todos os usuários.")
     ResponseEntity<Page<UsuarioListResponse>> buscarUsuario(@PageableDefault Pageable pageable);
-
-    @PostMapping
-    @Operation(summary = "Criar um novo usuário", description = "Cria um novo usuário com base nos dados fornecidos.")
-    ResponseEntity<UsuarioListResponse> criarUsuario(@RequestBody @Valid CreateUsuarioRequest request);
 
     @GetMapping("{id}")
     @Operation(summary = "Buscar usuário por ID", description = "Obtém as informações de um usuário específico com base no ID fornecido.")

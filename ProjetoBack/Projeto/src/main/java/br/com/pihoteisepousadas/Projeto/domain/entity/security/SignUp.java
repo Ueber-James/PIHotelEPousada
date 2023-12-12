@@ -9,8 +9,8 @@ import java.time.LocalDate;
 @Builder
 public class SignUp {
     private String nome;
-    private String email;
+    private String sobrenome;
     private String password;
-    private LocalDate dataNascimento;
+    private String email;
     private UserPermission role;
 }

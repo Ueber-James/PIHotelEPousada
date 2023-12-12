@@ -15,12 +15,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     private final UsuarioRepository usuarioRepository;
     @Autowired
     public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
-    }
 
-    @Override
-    public Usuario criarUsuario(Usuario usuario) {
-        return usuarioRepository.save(usuario);
+        this.usuarioRepository = usuarioRepository;
     }
 
     @Override

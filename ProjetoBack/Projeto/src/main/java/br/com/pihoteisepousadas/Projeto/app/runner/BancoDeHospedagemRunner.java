@@ -1,7 +1,6 @@
 package br.com.pihoteisepousadas.Projeto.app.runner;
 
 import br.com.pihoteisepousadas.Projeto.domain.entity.Hospedagem;
-import br.com.pihoteisepousadas.Projeto.domain.entity.Hoteis;
 import br.com.pihoteisepousadas.Projeto.domain.repository.HospedagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

@@ -36,7 +36,7 @@ public class WebServerSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests( auth -> {    auth.requestMatchers("/usuarios").permitAll();
+                .authorizeHttpRequests( auth -> {    auth.requestMatchers("/authentication").permitAll();
                     auth.requestMatchers(SWAGGER_LIST).permitAll();
                     auth.requestMatchers("/authentication/sign-up").permitAll();
                     auth.requestMatchers("/authentication/sign-in").permitAll();

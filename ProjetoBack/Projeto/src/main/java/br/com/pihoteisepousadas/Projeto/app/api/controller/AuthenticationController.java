@@ -51,13 +51,38 @@ public class AuthenticationController {
 
     @PostMapping(value = "/sign-up")
     @Operation(summary = "Registrar novo usuário", description = "Registra um novo usuário com base nas informações fornecidas.")
+    public ResponseEntity<?> createNewUser(@RequestBody @Valid AuthenticationSignUpRequest request) {
+        Logger logger = LoggerFactory.getLogger(this.getClass());
+        try {
+            SignUp signUp = SignUp.builder()
+                    .nome(request.getNome())
+                    .email(request.getEmail())
+                    .password(request.getPassword())
+                    .sobrenome(request.getSobrenome())
+                    .role(request.getRole())
+                    .build();
+            authenticationService.signUp(signUp);
+
+
+            return ResponseEntity.status(HttpStatus.CREATED).body("Usuário criado com sucesso!");
+        } catch (Exception e) {
+
+            logger.error("Ocorreu um erro ao criar o usuário: ", e);
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar o usuário");
+        }
+    }
+
+   /* @PostMapping(value = "/sign-up")
+    @Operation(summary = "Registrar novo usuário", description = "Registra um novo usuário com base nas informações fornecidas.")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody @Valid AuthenticationSignUpRequest request) {
         Logger logger = LoggerFactory.getLogger(this.getClass());
         try {
             SignUp signUp = SignUp.builder()
+                    .nome(request.getNome())
                     .email(request.getEmail())
                     .password(request.getPassword())
-                    .dataNascimento(request.getDataNascimento())
+                    .sobrenome(request.getSobrenome())
                     .role(request.getRole())
                     .build();
             String jwt = authenticationService.signUp(signUp);
@@ -68,29 +93,5 @@ public class AuthenticationController {
             // Re-throw the exception
             throw e;
         }
-    }
-
-
-       /* @PostMapping(value = "/sign-up")
-        @Operation(summary = "Registrar novo usuário", description = "Registra um novo usuário com base nas informações fornecidas.")
-        public ResponseEntity<?> createNewUser(@RequestBody @Valid AuthenticationSignUpRequest request) {
-            Logger logger = LoggerFactory.getLogger(this.getClass());
-            try {
-                SignUp signUp = SignUp.builder()
-                        .email(request.getEmail())
-                        .password(request.getPassword())
-                        .dataNascimento(request.getDataNascimento())
-                        .role(request.getRole())
-                        .build();
-                authenticationService.signUp(signUp);
-
-
-                return ResponseEntity.status(HttpStatus.CREATED).body("Usuário criado com sucesso!");
-            } catch (Exception e) {
-
-                logger.error("Ocorreu um erro ao criar o usuário: ", e);
-
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar o usuário");
-            }
-        } */
+    } */
 }

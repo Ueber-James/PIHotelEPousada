@@ -7,7 +7,6 @@ import org.springframework.data.domain.Pageable;
 import java.util.UUID;
 
 public interface UsuarioService {
-    Usuario criarUsuario(Usuario usuario);
 
     Page<Usuario> buscarUsuario(Pageable pageable);
 

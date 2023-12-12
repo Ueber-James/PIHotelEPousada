@@ -42,15 +42,6 @@ public class UsuarioController implements UsuarioApi {
     }
 
     @Override
-
-    public ResponseEntity<UsuarioListResponse> criarUsuario(CreateUsuarioRequest request) {
-        Usuario usuario = mapper.convertValue(request, Usuario.class);
-        Usuario usuarioCriado = usuarioService.criarUsuario(usuario);
-        UsuarioListResponse usuarioListResponse = usuarioParaUsuarioListResponse(usuarioCriado);
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioListResponse);
-    }
-
-    @Override
     public ResponseEntity<UsuarioListResponse> buscarUsuarioPorId(UUID id) {
         Usuario usuario = usuarioService.buscarUsuarioPorId(id);
         UsuarioListResponse usuarioListResponse = usuarioParaUsuarioListResponse(usuario);
@@ -70,7 +61,7 @@ public class UsuarioController implements UsuarioApi {
         return ResponseEntity.noContent().build();
     }
 
-    private UsuarioListResponse usuarioParaUsuarioListResponse (Usuario cliente){
-        return mapper.convertValue(cliente, UsuarioListResponse.class);
+    private UsuarioListResponse usuarioParaUsuarioListResponse (Usuario usuario){
+        return mapper.convertValue(usuario, UsuarioListResponse.class);
     }
 }

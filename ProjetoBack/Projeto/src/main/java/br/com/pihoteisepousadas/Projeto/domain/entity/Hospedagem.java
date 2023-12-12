@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -30,8 +31,11 @@ public class Hospedagem {
             @ForeignKey(name = "fk_hoteis_hospedagem"))
     private Hoteis hoteis;
     private LocalDate dataHospedagem;
+    private String descricao;
     private Boolean cancelada;
-    private String valor;
+    @Column(length = 80)
+    private  String motivo_cancelamento;
+
     private void validar(){
         if (id == null) {
             throw new IllegalArgumentException("'id' não informado!");

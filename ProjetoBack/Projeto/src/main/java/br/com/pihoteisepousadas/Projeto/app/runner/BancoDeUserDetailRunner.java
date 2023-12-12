@@ -22,7 +22,7 @@ public class BancoDeUserDetailRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         UserDetail user1 = new UserDetail();
         user1.setNome("elton");
-        user1.setEmail("eltinhotm@gmail.com");
+        user1.setEmail("elton@gmail.com");
         user1.setPassword("1234");
 
         UserDetail user2 = new UserDetail();
