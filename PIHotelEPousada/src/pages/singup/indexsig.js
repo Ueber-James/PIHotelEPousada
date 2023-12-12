@@ -55,7 +55,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3001/api/cadastro", {
+      const response = await axios.post("http://localhost:3006/api/cadastro", {
         nome: formData.name,
         email: formData.email,
         senha: formData.password,
