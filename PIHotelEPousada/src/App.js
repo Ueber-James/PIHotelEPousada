@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Login from './pages/login/Login';
 import Singup from './pages/singup/Sign';
 import Reservation from './components/reservation';
+import AdminPage from './pages/admin/AdminPage';
 
 
 
@@ -40,9 +41,12 @@ const router = createBrowserRouter([
   {
     path: '/reservation/:id',
     element: <Reservation />
+  },
+  {
+    path: '/adm',
+    element: <AdminPage />,
   }
   
-
 ]);
 
 const App = () => {
