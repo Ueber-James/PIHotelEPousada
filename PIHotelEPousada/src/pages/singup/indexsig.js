@@ -55,10 +55,13 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3001/api/cadastro", {
+      const response = await axios.post("http://localhost:9000/authentication/sign-up", {
         nome: formData.name,
-        email: formData.email,
+        sobrenome:formData.lastname,
+        email: formData.email, 
+
         senha: formData.password,
+        role: "USER",
       });
 
       console.log("Cadastro realizado com sucesso:", response.data);

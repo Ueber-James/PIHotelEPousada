@@ -5,6 +5,7 @@ import br.com.pihoteisepousadas.Projeto.app.api.dto.request.AuthenticationSignUp
 import br.com.pihoteisepousadas.Projeto.app.api.dto.response.AuthenticationResponse;
 import br.com.pihoteisepousadas.Projeto.domain.entity.security.SignIn;
 import br.com.pihoteisepousadas.Projeto.domain.entity.security.SignUp;
+import br.com.pihoteisepousadas.Projeto.domain.repository.UserRepository;
 import br.com.pihoteisepousadas.Projeto.domain.service.AuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -27,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthenticationController {
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationController.class);
     private final AuthenticationService authenticationService;
+
 
     @Autowired
     public AuthenticationController(AuthenticationService authenticationService) {
@@ -52,7 +54,9 @@ public class AuthenticationController {
     @PostMapping(value = "/sign-up")
     @Operation(summary = "Registrar novo usuário", description = "Registra um novo usuário com base nas informações fornecidas.")
     public ResponseEntity<?> createNewUser(@RequestBody @Valid AuthenticationSignUpRequest request) {
+
         Logger logger = LoggerFactory.getLogger(this.getClass());
+        
         try {
             SignUp signUp = SignUp.builder()
                     .nome(request.getNome())
