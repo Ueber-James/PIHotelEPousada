@@ -7,11 +7,12 @@ const SignUp = () => {
 
 
   const [formData, setFormData] = useState({
-    name: "",
-    lastname: "",
+    nome: "",
+    sobrenome: "",
     email: "",
     password: "",
     confirmPassword: "",
+    role: "USER",
   });
 
   const [successMessage, setSuccessMessage] = useState("");
@@ -28,11 +29,12 @@ const SignUp = () => {
   const handleSuccess = () => {
     setSuccessMessage("Cadastro realizado com sucesso");
     setFormData({
-      name: "",
-      lastname: "",
+      nome: "",
+      sobrenome: "",
       email: "",
       password: "",
       confirmPassword: "",
+      role: "USER",
     });
     setErrorMessage("");
     setTimeout(() => {
@@ -55,8 +57,8 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3001/api/cadastro", {
-        nome: formData.name,
+      const response = await axios.post("http://localhost:9000/authentication/sign-up", {
+        nome: formData.nome,
         email: formData.email,
         senha: formData.password,
       });
