@@ -21,7 +21,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationManager authenticationManager;
     @Override
     public String signUp(SignUp request) {
-        var user = UserDetail.builder().build().builder().nome(request.getNome())
+        var user = UserDetail.builder().build().builder().nome(request.getName())
                 .email(request.getEmail()).password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole()).build();
         userRepository.save(user);

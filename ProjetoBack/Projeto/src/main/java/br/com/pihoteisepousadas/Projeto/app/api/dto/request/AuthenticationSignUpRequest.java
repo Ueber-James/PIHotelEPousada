@@ -13,10 +13,10 @@ import java.time.LocalDate;
 public class AuthenticationSignUpRequest {
     @NotNull
     @Schema(example = "João", requiredMode = Schema.RequiredMode.REQUIRED)
-    private String nome;
+    private String name;
     @NotNull
     @Schema(example = "de Souza", requiredMode = Schema.RequiredMode.REQUIRED)
-    private String sobrenome;
+    private String lastname;
     @NotBlank
     @Schema(example = "seu_email@email.com", requiredMode = Schema.RequiredMode.REQUIRED)
     private String email;

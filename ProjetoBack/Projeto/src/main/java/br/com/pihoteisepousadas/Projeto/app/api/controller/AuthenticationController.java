@@ -59,10 +59,10 @@ public class AuthenticationController {
         
         try {
             SignUp signUp = SignUp.builder()
-                    .nome(request.getNome())
+                    .name(request.getName())
                     .email(request.getEmail())
                     .password(request.getPassword())
-                    .sobrenome(request.getSobrenome())
+                    .lastname(request.getLastname())
                     .role(request.getRole())
                     .build();
             authenticationService.signUp(signUp);

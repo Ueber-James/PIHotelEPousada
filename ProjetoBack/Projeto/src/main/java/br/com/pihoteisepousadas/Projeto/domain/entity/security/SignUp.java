@@ -8,8 +8,8 @@ import java.time.LocalDate;
 @Getter
 @Builder
 public class SignUp {
-    private String nome;
-    private String sobrenome;
+    private String name;
+    private String lastname;
     private String password;
     private String email;
     private UserPermission role;
