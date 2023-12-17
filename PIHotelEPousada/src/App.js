@@ -5,6 +5,7 @@ import Login from './pages/login/Login';
 import Singup from './pages/singup/Sign';
 import Reservation from './components/reservation';
 import AdminPage from './pages/admin/AdminPage';
+import MyReservations from './pages/myReservations/MyReservations';
 
 
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: '/adm',
     element: <AdminPage />,
+  },
+  {
+    path: '/my-reservations',
+    element: <MyReservations />
   }
   
 ]);

@@ -52,49 +52,53 @@ function AdminPage() {
 
   return (
     <div>
-      <h1>Administração</h1>
 
-      <h2>Adicionar Novo Produto</h2>
-      <form>
-        <label htmlFor="productName">Nome do Produto:</label>
-        <input
-          type="text"
-          id="productName"
-          value={newProduct.name}
-          onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
-        />
+      <div className="app">
+        <h1>Administração</h1>
 
-        <label htmlFor="productDescription">Descrição:</label>
-        <textarea
-          id="productDescription"
-          value={newProduct.description}
-          onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
-        />
+        <h2>Adicionar Novo Produto</h2>
+        <form>
+          <label htmlFor="productName">Nome do Produto:</label>
+          <input
+            type="text"
+            id="productName"
+            value={newProduct.name}
+            onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
+          />
 
-        <label htmlFor="productPrice">Preço:</label>
-        <input
-          type="number"
-          id="productPrice"
-          value={newProduct.price}
-          onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
-        />
+          <label htmlFor="productDescription">Descrição:</label>
+          <textarea
+            id="productDescription"
+            value={newProduct.description}
+            onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
+          />
 
-        <button type="button" onClick={addProduct}>
-          Adicionar Produto
-        </button>
-      </form>
+          <label htmlFor="productPrice">Preço:</label>
+          <input
+            type="number"
+            id="productPrice"
+            value={newProduct.price}
+            onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
+          />
 
-      <h2>Lista de Produtos</h2>
-      <ul>
-        {productList.map((product) => (
-          <li key={product.id}>
-            {product.name} - {product.price}{' '}
-            <button type="button" onClick={() => removeProduct(product.id)}>
-              Remover
-            </button>
-          </li>
-        ))}
-      </ul>
+          <button type="button" onClick={addProduct}>
+            Adicionar Produto
+          </button>
+        </form>
+
+        <h2>Lista de Produtos</h2>
+        <ul>
+          {productList.map((product) => (
+            <li key={product.id}>
+              {product.name} - {product.price}{' '}
+              <button type="button" onClick={() => removeProduct(product.id)}>
+                Remover
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
     </div>
   );
 }
